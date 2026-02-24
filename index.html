@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Task Tracker</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -12,15 +13,17 @@
         <form id="taskForm">
             <!-- Task form inputs go here -->
              <label for="taskName">Task name: </label><br>
-             <input type="text" id="taskName" name="taskname" /><br>
+             <!-- <input type="text" id="taskName" name="taskname" /><br> -->
+             <input id="taskName" class="form-control form-control-lg" type="text" placeholder="Title" aria-label="default input example">
 
              <label for="taskDescription">Task description: </label><br>
-             <textarea type="text" id="taskDescription" name="taskDescription"></textarea><br><br>
+             <textarea class="form-control" type="text" id="taskDescription" name="taskDescription" placeholder="Description"></textarea><br>
 
              <label for="taskDeadline">Task deadline: </label><br>
-             <input type="date" id="taskDeadline" name="taskDeadline" /><br>
+             <input class="form-control" type="date" id="taskDeadline" name="taskDeadline" /><br>
 
-             <button type="submit">Add Task</button>
+             <!-- <button type="submit">Add Task</button> -->
+             <button type="submit" class="btn btn-primary btn-sm">Add Task</button>
 
         </form>
         <table id="taskTable">
@@ -29,6 +32,7 @@
 
         </table>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
     <script src="script.js"></script>
 </body>
 

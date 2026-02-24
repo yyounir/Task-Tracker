@@ -20,10 +20,12 @@ function handleSubmission(event) {
     if(taskName == "" && taskDescription == "") {
         alert("Task name and description are required!");
     }
-
-    // TODO: Update tasks array
-    tasks.push({name: taskName, description: taskDescription, deadline: taskDeadline});
-    render();
+    else {
+        // TODO: Update tasks array
+        // Placed this in the else block to prevent null tasks added to the tasks array
+        tasks.push({name: taskName, description: taskDescription, deadline: taskDeadline});
+        render();
+    }
 }
 
 
