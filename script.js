@@ -25,6 +25,7 @@ function handleSubmission(event) {
         // Placed this in the else block to prevent null tasks added to the tasks array
         tasks.push({name: taskName, description: taskDescription, deadline: taskDeadline});
         render();
+        saveTasks(tasks);
     }
 }
 
@@ -32,27 +33,38 @@ function handleSubmission(event) {
 // Function to render tasks in the table
 function render() {
     // TODO: Use array methods to create a new table row of data for each item in the array
-    taskTable.innerHTML = tasks.map(task =>
+    taskTable.innerHTML = tasks.map((task, index) =>
         `<tr>
-            <td>${task.name}</td>
-            <td>${task.description}</td>
-            <td>${task.deadline}</td>
-            <td><button id="complete-btn" onclick="markTaskComplete(this)">Complete</button></td>
-            <td><button id="remove-btn" onclick="removeTask(this)">Remove</button></td>
+
+            <div class="card w-100 mb-3">
+                <div class="card-body">
+                    <h5 class="card-title">${task.name}</h5>
+                    <p class="card-text">${task.description}</p>
+                    <p class="card-text">Date Due:&nbsp;${task.deadline}</p>
+                    <a class="btn btn-secondary" onclick="removeTask(${index})"><i class="fa-solid fa-trash-can"></i>&nbsp;Delete</a>
+                    <a class="btn btn-primary" onclick="markTaskComplete(${index})"><i class="fa-solid fa-check"></i>&nbsp;Complete</a>
+                    
+                </div>
+            </div>
         </tr>`
     ).join("");
 }
 
-function markTaskComplete(task) {
+function markTaskComplete(index) {
     alert("Task completed! Good job!");
     const complete_btn = document.getElementById("complete-btn");
-    complete_btn.closest("tr").remove();
+    tasks.splice(index, 1);   // remove 1 element at this index
+    render(); 
+    saveTasks(tasks)
+    
 }
 
-function removeTask(task) {
+function removeTask(index) {
     alert("Task removed");
     const remove_btn = document.getElementById("remove-btn");
-    remove_btn.closest("tr").remove();
+    tasks.splice(index, 1);   // remove 1 element at this index
+    render(); 
+    saveTasks(tasks)
 }
 
 // Function to initialize the table
@@ -60,10 +72,34 @@ function init() {
     taskTable.innerHTML = ""; // Clears the table
     tasks = []; // Reset the tasks array
     render(); // Call the render function
-
+    
     // Event listener for form submission
     taskForm.addEventListener("submit", handleSubmission);
+
+}
+
+function saveTasks(tasks) {
+    console.log("Saving tasks to local storage...");
+
+    localStorage.setItem("SavedTasks", JSON.stringify(tasks));  // save as JSON
+    
+    console.log("Tasks saved!");
+}
+
+function loadTasks() {
+    console.log("Loading tasks...")
+
+    const loadedTasks = localStorage.getItem("SavedTasks");
+
+    if(loadedTasks) {
+        tasks = JSON.parse(loadedTasks);    // restore into the global tasks array
+        render();                           // rebuild the HTML from tasks
+        console.log("Tasks loaded!")
+    }
+    else console.log("Saved tasks wasn't found...")
 }
 
 // Call the init function to set up the initial state of the app
 init();
+loadTasks();
+// render()

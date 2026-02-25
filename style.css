@@ -8,13 +8,23 @@ body {
 .container {
     max-width: 800px;
     margin: 50px auto; 
+    /* margin-top: 10px; */
     /* 50px refers to the top and bottom, 
     while auto refers to left and right */
     /* margin and padding follows the up, down, left, right order */
+    /* margin-bottom: 0px; */
     padding: 20px;
     background-color: #fff;
-    border-radius: 8px;
+    border-radius: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1)
+}
+
+.btn {
+    border-radius: 15px;
+}
+
+.card-title {
+    font-weight: bold;
 }
 
 /* More styles */
