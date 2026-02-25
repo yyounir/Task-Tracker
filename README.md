@@ -14,6 +14,7 @@ Manage your tasks in one web-app, mark them complete with just one click!
   <li>HTML/CSS</li>
   <li>JavaScript</li>
   <li>Bootstrap</li>
+  <li>Web Storage API</li>
 </ul>
 
 ## Associated with
