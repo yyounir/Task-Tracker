@@ -4,6 +4,12 @@ let tasks = [] // initialize the variable as an empty array
 const taskForm = document.getElementById("taskForm")
 const taskTable = document.getElementById("taskTable")
 
+// const myModal = document.getElementById('myModal')
+const myInput = document.getElementById('myInput')
+const modalElement = document.getElementById("myModal");
+const completeModal = new bootstrap.Modal(modalElement);
+
+
 // TODO: Determine the value of the data submitted and add it to Javascript array calls
 // TODO: Call the render function to update the table with new tasks.
 
@@ -51,16 +57,15 @@ function render() {
 }
 
 function markTaskComplete(index) {
-    alert("Task completed! Good job!");
     const complete_btn = document.getElementById("complete-btn");
     tasks.splice(index, 1);   // remove 1 element at this index
     render(); 
     saveTasks(tasks)
-    
+    completeModal.show();
 }
 
 function removeTask(index) {
-    alert("Task removed");
+    // alert("Task removed");
     const remove_btn = document.getElementById("remove-btn");
     tasks.splice(index, 1);   // remove 1 element at this index
     render(); 
