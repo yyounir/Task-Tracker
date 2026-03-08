@@ -18,5 +18,5 @@ Manage your tasks in one web-app, mark them complete with just one click!
 </ul>
 
 ## Associated with
-CMP 343 - Full Stack Web Development
+CMP 343 - Full Stack Web Development<br>
 CUNY Lehman College - Spring 2026
