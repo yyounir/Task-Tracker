@@ -51,6 +51,7 @@ task-tracker/
 ├── style.css       # Stylesheet for the application UI[cite: 3]
 ├── script.js       # Core JavaScript logic and DOM interactions[cite: 3]
 └── README.md       # Project documentation[cite: 3]
+```
 
 ## Associated with
 CMP 343 - Full Stack Web Development<br>
